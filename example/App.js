@@ -21,12 +21,13 @@ export default class App extends React.Component<{}, $FlowFixMeState> {
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.segmentContainer}>
           <Text style={styles.text}>Segmented controls can have values</Text>
-          <SegmentedControlIOS values={['One', 'Two']} />
+          <SegmentedControlIOS values={['One', 'Two']} selectedIndex={0} />
         </View>
 
         <View style={styles.segmentSection}>
           <SegmentedControlIOS
             values={['One', 'Two', 'Three', 'Four', 'Five']}
+            selectedIndex={2}
           />
         </View>
 
@@ -39,7 +40,11 @@ export default class App extends React.Component<{}, $FlowFixMeState> {
 
         <View style={styles.segmentSection}>
           <Text style={styles.text}>Segmented controls can be momentary</Text>
-          <SegmentedControlIOS values={['One', 'Two']} momentary={true} />
+          <SegmentedControlIOS
+            values={['One', 'Two']}
+            momentary={true}
+            selectedIndex={1}
+          />
         </View>
 
         <View style={styles.segmentSection}>
@@ -58,6 +63,7 @@ export default class App extends React.Component<{}, $FlowFixMeState> {
             values={['One', 'Two', 'Three', 'Four']}
             selectedIndex={0}
             backgroundColor="#0000ff"
+            activeTextColor="white"
           />
         </View>
         <View style={styles.segmentContainer}>
@@ -65,6 +71,7 @@ export default class App extends React.Component<{}, $FlowFixMeState> {
             tintColor="#00ff00"
             values={['One', 'Two', 'Three']}
             selectedIndex={1}
+            activeTextColor="black"
           />
         </View>
         <View style={styles.segmentSection}>
