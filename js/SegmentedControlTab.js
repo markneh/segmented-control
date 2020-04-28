@@ -46,32 +46,28 @@ export const SegmentedControlTab = ({
     }
     return 'white';
   };
+  const backgroundColor = selected ? getBackgroundColor() : undefined;
   return (
     <TouchableOpacity
-      style={styles.container}
+      style={[styles.container, {backgroundColor}]}
       disabled={!enabled}
       onPress={onSelect}>
-      <View
-        style={[
-          styles.default,
-          selected && {backgroundColor: getBackgroundColor()},
-        ]}>
-        <Text style={[{color}, selected && styles.activeText]}>{value}</Text>
+      <View style={styles.default}>
+        <Text style={{color}}>{value}</Text>
       </View>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {flex: 1, borderRadius: 5},
+  container: {
+    flex: 1,
+    borderRadius: 5,
+    margin: 2,
+  },
   default: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 2,
-    borderRadius: 5,
-  },
-  activeText: {
-    fontWeight: '700',
   },
 });
